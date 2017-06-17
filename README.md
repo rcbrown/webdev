@@ -4,14 +4,16 @@ Docker image for web development; saves user from installing git, node, etc.
 Includes:
 * git
 * vim
-* nodejs and npm with the following installed:
-** create-react-app
-
-* AWS cli
+* nodejs and npm
+* python with the following installed:
+** pip
+** aws-cli
+** aws-shell
+* create-react-app
 
 It's meant to be used from the root directory of a project; you can do so using the published image, with no prior installs other than Docker. To use npm, create-react-app, and other tools, be in your project's directory and log in like this:
 ```bash
-docker run -it -v $( pwd ):/www rcbrown/webdev bash
+docker run -it -v $( pwd ):/www -p80:80 rcbrown/webdev bash
 ```
 Consider adding any common `npm install -g`s to the Dockerfile.
 
